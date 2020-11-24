@@ -11,6 +11,10 @@ public class Cinema {
         this.rows = rows;
     }
 
+    public List<Row> getRows() {
+        return rows;
+    }
+
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
@@ -41,5 +45,16 @@ public class Cinema {
         return new Seat(row, column);
     }
 
+    private static void printSeats(Cinema cinema) {
 
+        List<Row> rows = cinema.getRows();
+        for (int i = 0; i < rows.size(); i++) {
+            System.out.printf("%d ", i + 1);
+            List<Seat> seats = rows.get(i).getSeats();
+            for (Seat seat : seats) {
+                System.out.printf("%s ", seat);
+            }
+            System.out.println();
+        }
+    }
 }
