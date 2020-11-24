@@ -20,6 +20,7 @@ public class Cinema {
         Cinema cinema = CinemaCreator.createCinema(rows, seatsInRow);
 
         Seat userSeat = readUserPlace(scanner);
+        int price = userSeat.calculatePrice();
     }
 
     private static int getNumberOfRows(Scanner scanner) {
