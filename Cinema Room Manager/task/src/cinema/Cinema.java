@@ -22,7 +22,7 @@ public class Cinema {
 
         int rows = getNumberOfRows(scanner);
         int seatsInRow = getNumberOfSeats(scanner);
-        Cinema cinema = CinemaCreator.createCinema(rows, seatsInRow);
+        Cinema cinema = CinemaManager.createCinema(rows, seatsInRow);
         printCinemaSchema(cinema, seatsInRow);
 
         Seat userSeat = readUserPlace(scanner);

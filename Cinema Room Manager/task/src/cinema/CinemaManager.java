@@ -3,7 +3,7 @@ package cinema;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CinemaCreator {
+public class CinemaManager {
 
     static Cinema createCinema(final int numberOfRows, final int numberOfSeats) {
 
