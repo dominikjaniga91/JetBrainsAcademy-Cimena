@@ -5,15 +5,7 @@ import java.util.List;
 
 public class CinemaCreator {
 
-    private final int numberOfRows;
-    private final int numberOfSeats;
-
-    CinemaCreator(int numberOfRows, int numberOfSeats) {
-        this.numberOfRows = numberOfRows;
-        this.numberOfSeats = numberOfSeats;
-    }
-
-    Cinema createCinema() {
+    static Cinema createCinema(final int numberOfRows, final int numberOfSeats) {
 
         List<Row> rows = new ArrayList<>();
         for (int rowNumber = 0; rowNumber < numberOfRows; rowNumber++) {
