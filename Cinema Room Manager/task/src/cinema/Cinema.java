@@ -19,6 +19,7 @@ public class Cinema {
         int seatsInRow = getNumberOfSeats(scanner);
         Cinema cinema = CinemaCreator.createCinema(rows, seatsInRow);
 
+        Seat userSeat = readUserPlace(scanner);
     }
 
     private static int getNumberOfRows(Scanner scanner) {
@@ -30,5 +31,14 @@ public class Cinema {
         System.out.println("Enter the number of seats in each row:");
         return scanner.nextInt();
     }
+
+    private static Seat readUserPlace(Scanner scanner) {
+        System.out.println("Enter a row number:");
+        int row = scanner.nextInt();
+        System.out.println("Enter a seat number in that row:");
+        int column = scanner.nextInt();
+        return new Seat(row, column);
+    }
+
 
 }
