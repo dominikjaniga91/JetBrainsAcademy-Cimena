@@ -1,8 +1,18 @@
 package cinema;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Cinema {
+
+    private List<Row> rows;
+
+    public Cinema(List<Row> rows) {
+        this.rows = rows;
+    }
+
+    public Cinema(){
+    }
 
     public static void main(String[] args) {
 
