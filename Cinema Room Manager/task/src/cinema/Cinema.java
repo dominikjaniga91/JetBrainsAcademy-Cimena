@@ -2,6 +2,7 @@ package cinema;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.IntStream;
 
 public class Cinema {
 
@@ -43,6 +44,13 @@ public class Cinema {
         System.out.println("Enter a seat number in that row:");
         int column = scanner.nextInt();
         return new Seat(row, column);
+    }
+
+    private static void printColumnsNumbers(int seats) {
+        System.out.print("  ");
+        IntStream.rangeClosed(1, seats)
+                .forEach(i -> System.out.print(i + " "));
+        System.out.println();
     }
 
     private static void printSeats(Cinema cinema) {
