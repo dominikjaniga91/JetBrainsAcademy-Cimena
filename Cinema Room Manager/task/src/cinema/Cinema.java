@@ -28,7 +28,7 @@ public class Cinema {
         Seat userSeat = readUserPlace(scanner);
         int price = userSeat.calculatePrice();
         System.out.printf("Ticket price: $%d%n%n", price);
-
+        CinemaManager.bookSeat(cinema, userSeat);
     }
 
     private static int getNumberOfRows(Scanner scanner) {
