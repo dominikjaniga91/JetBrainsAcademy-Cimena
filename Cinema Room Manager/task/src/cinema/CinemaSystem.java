@@ -37,6 +37,10 @@ class CinemaSystem {
         return scanner.nextInt();
     }
 
+    private void exit() {
+        System.exit(0);
+    }
+
     private void buyTicket() {
         Seat userSeat = readUserPlace(scanner);
         int price = cinema.calculatePrize(userSeat);
