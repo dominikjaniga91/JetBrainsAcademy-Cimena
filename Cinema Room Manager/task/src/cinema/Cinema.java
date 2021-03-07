@@ -17,45 +17,9 @@ public class Cinema implements Iterable<Row> {
         return rows;
     }
 
-    public static void main(String[] args) {
-
-        Scanner scanner = new Scanner(System.in);
-
-        int rows = getNumberOfRows(scanner);
-        int seatsInRow = getNumberOfSeats(scanner);
-        Cinema cinema = CinemaManager.createCinema(rows, seatsInRow);
-        printCinemaSchema(cinema, seatsInRow);
-
-
-        Seat userSeat = readUserPlace(scanner);
-        int price = cinema.calculatePrize(userSeat);
-        System.out.printf("%nTicket price: $%d%n", price);
-        CinemaManager.bookSeat(cinema, userSeat);
-        printCinemaSchema(cinema, seatsInRow);
-
-    }
-
-    private static int getNumberOfRows(Scanner scanner) {
-        System.out.println("Enter the number of rows:");
-        return scanner.nextInt();
-    }
-
-    private static int getNumberOfSeats(Scanner scanner) {
-        System.out.println("Enter the number of seats in each row:");
-        return scanner.nextInt();
-    }
-
-    private static Seat readUserPlace(Scanner scanner) {
-        System.out.println("Enter a row number:");
-        int row = scanner.nextInt();
-        System.out.println("Enter a seat number in that row:");
-        int column = scanner.nextInt();
-        return new Seat(row, column);
-    }
-
-    private static void printCinemaSchema(Cinema cinema, int seats) {
+    void print(int seats) {
         printColumnsNumbers(seats);
-        printSeats(cinema);
+        printSeats();
     }
 
     private static void printColumnsNumbers(int seats) {
@@ -67,9 +31,8 @@ public class Cinema implements Iterable<Row> {
         System.out.println();
     }
 
-    private static void printSeats(Cinema cinema) {
+    private void printSeats() {
 
-        List<Row> rows = cinema.getRows();
         for (int i = 0; i < rows.size(); i++) {
             System.out.printf("%d ", i + 1);
             List<Seat> seats = rows.get(i).getSeats();
@@ -81,7 +44,7 @@ public class Cinema implements Iterable<Row> {
         System.out.println();
     }
 
-    private int calculatePrize(Seat seat) {
+    int calculatePrize(Seat seat) {
         if (rows.size() * rows.get(0).getSeats().size() <= 60) {
             return 10;
         }

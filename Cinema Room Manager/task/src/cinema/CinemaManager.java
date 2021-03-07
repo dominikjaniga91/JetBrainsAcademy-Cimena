@@ -5,7 +5,7 @@ import java.util.List;
 
 public class CinemaManager {
 
-    static Cinema createCinema(final int numberOfRows, final int numberOfSeats) {
+    Cinema createCinema(final int numberOfRows, final int numberOfSeats) {
 
         List<Row> rows = new ArrayList<>();
         for (int rowNumber = 0; rowNumber < numberOfRows; rowNumber++) {
