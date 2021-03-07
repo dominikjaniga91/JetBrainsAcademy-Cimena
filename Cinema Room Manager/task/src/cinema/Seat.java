@@ -16,7 +16,7 @@ class Seat {
     }
 
     public int calculatePrice() {
-        return row > 4 ? frontSeatPrice
+        return row <= row / 2 ? frontSeatPrice
                 : backSeatPrice;
     }
 
