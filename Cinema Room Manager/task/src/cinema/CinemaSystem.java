@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 class CinemaSystem {
 
-    private final CinemaManager cinemaManager = new CinemaManager();
     private final Scanner scanner = new Scanner(System.in);
     private Cinema cinema;
 
