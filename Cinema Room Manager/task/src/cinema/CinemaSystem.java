@@ -12,11 +12,10 @@ class CinemaSystem {
         int rows = getNumberOfRows(scanner);
         int seatsInRow = getNumberOfSeats(scanner);
         cinema = cinemaManager.createCinema(rows, seatsInRow);
-        cinema.print();
 
-        buyTicket();
-        cinema.print();
-
+        printMenu();
+        int numberOfOperation = scanner.nextInt();
+        runOperation(numberOfOperation);
     }
 
     private static Seat readUserPlace(Scanner scanner) {
@@ -54,6 +53,12 @@ class CinemaSystem {
         int price = cinema.calculatePrize(userSeat);
         System.out.printf("%nTicket price: $%d%n", price);
         cinema.bookSeat(userSeat);
+    }
+
+    private void printMenu() {
+        System.out.println("1. Show the seats\n" +
+                            "2. Buy a ticket\n" +
+                            "0. Exit");
     }
 
 }
