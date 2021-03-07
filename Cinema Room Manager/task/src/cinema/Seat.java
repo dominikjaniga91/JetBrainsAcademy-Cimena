@@ -28,6 +28,10 @@ class Seat {
                 row == seat.row;
     }
 
+    boolean isTaken() {
+        return "B".equals(value);
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(column, row);
