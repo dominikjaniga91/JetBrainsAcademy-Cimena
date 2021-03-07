@@ -11,7 +11,8 @@ class CinemaSystem {
     void start() {
         int rows = getNumberOfRows(scanner);
         int seatsInRow = getNumberOfSeats(scanner);
-        cinema = cinemaManager.createCinema(rows, seatsInRow);
+        cinema = new Cinema(rows, seatsInRow);
+        cinema.create();
 
         while (true) {
             printMenu();
@@ -48,9 +49,9 @@ class CinemaSystem {
 
     private void buyTicket() {
         Seat userSeat = readUserPlace(scanner);
+        Seat chosenSeat = cinema.bookSeat(userSeat);
         int price = cinema.calculatePrize(userSeat);
         System.out.printf("%nTicket price: $%d%n", price);
-        cinema.bookSeat(userSeat);
     }
 
     private void printMenu() {

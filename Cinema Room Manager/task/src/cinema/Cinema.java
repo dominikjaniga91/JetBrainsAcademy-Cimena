@@ -1,5 +1,6 @@
 package cinema;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
@@ -8,9 +9,12 @@ import java.util.stream.IntStream;
 public class Cinema implements Iterable<Row> {
 
     private List<Row> rows;
+    public final int numberOfRows;
+    public final int numberOfSeats;
 
-    public Cinema(List<Row> rows) {
-        this.rows = rows;
+    public Cinema(int numberOfRows, int numberOfSeats) {
+        this.numberOfRows = numberOfRows;
+        this.numberOfSeats = numberOfSeats;
     }
 
     void print() {
@@ -47,13 +51,29 @@ public class Cinema implements Iterable<Row> {
         return seat.getRow() <= rows.size() / 2 ? 10 : 8;
     }
 
-    void bookSeat(Seat userSeat) {
+    Seat bookSeat(Seat userSeat) {
         for (Row row : rows) {
             for (Seat seat : row) {
                 if (seat.equals(userSeat)) {
                     seat.setValue("B");
+                    return seat;
                 }
             }
+        }
+        return null;
+    }
+
+    void create() {
+
+        rows = new ArrayList<>();
+        for (int rowNumber = 0; rowNumber < numberOfRows; rowNumber++) {
+            List<Seat> seats = new ArrayList<>();
+            for (int seatNumber = 0; seatNumber < numberOfSeats; seatNumber++) {
+                Seat seat = new Seat(rowNumber + 1, seatNumber + 1);
+                seats.add(seat);
+            }
+            Row row = new Row(seats);
+            rows.add(row);
         }
     }
 
