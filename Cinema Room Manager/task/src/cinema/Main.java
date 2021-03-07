@@ -12,14 +12,14 @@ class Main {
         int rows = getNumberOfRows(scanner);
         int seatsInRow = getNumberOfSeats(scanner);
         Cinema cinema = cinemaManager.createCinema(rows, seatsInRow);
-        cinema.print(seatsInRow);
+        cinema.print();
 
 
         Seat userSeat = readUserPlace(scanner);
         int price = cinema.calculatePrize(userSeat);
         System.out.printf("%nTicket price: $%d%n", price);
         cinema.bookSeat(userSeat);
-        cinema.print(seatsInRow);
+        cinema.print();
     }
 
     private static Seat readUserPlace(Scanner scanner) {

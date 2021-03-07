@@ -13,16 +13,16 @@ public class Cinema implements Iterable<Row> {
         this.rows = rows;
     }
 
-    void print(int seats) {
-        printColumnsNumbers(seats);
+    void print() {
+        printColumnsNumbers();
         printSeats();
     }
 
-    private static void printColumnsNumbers(int seats) {
+    private void printColumnsNumbers() {
         System.out.println();
         System.out.println("Cinema:");
         System.out.print("  ");
-        IntStream.rangeClosed(1, seats)
+        IntStream.rangeClosed(1, rows.size())
                 .forEach(i -> System.out.print(i + " "));
         System.out.println();
     }
@@ -56,6 +56,13 @@ public class Cinema implements Iterable<Row> {
             }
         }
     }
+
+    void printMenu() {
+        System.out.println("1. Show the seats\n" +
+                "2. Buy a ticket\n" +
+                "0. Exit");
+    }
+
 
     @Override
     public Iterator<Row> iterator() {
