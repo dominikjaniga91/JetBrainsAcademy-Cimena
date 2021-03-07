@@ -13,10 +13,6 @@ public class Cinema implements Iterable<Row> {
         this.rows = rows;
     }
 
-    public List<Row> getRows() {
-        return rows;
-    }
-
     void print(int seats) {
         printColumnsNumbers(seats);
         printSeats();
@@ -49,6 +45,16 @@ public class Cinema implements Iterable<Row> {
             return 10;
         }
         return seat.getRow() <= rows.size() / 2 ? 10 : 8;
+    }
+
+    void bookSeat(Seat userSeat) {
+        for (Row row : rows) {
+            for (Seat seat : row) {
+                if (seat.equals(userSeat)) {
+                    seat.setValue("B");
+                }
+            }
+        }
     }
 
     @Override

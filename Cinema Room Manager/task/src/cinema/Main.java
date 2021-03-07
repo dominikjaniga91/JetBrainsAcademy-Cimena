@@ -18,7 +18,7 @@ class Main {
         Seat userSeat = readUserPlace(scanner);
         int price = cinema.calculatePrize(userSeat);
         System.out.printf("%nTicket price: $%d%n", price);
-        CinemaManager.bookSeat(cinema, userSeat);
+        cinema.bookSeat(userSeat);
         cinema.print(seatsInRow);
     }
 

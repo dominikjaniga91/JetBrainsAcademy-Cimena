@@ -19,14 +19,4 @@ public class CinemaManager {
         }
         return new Cinema(rows);
     }
-
-    static void bookSeat(Cinema cinema, Seat userSeat) {
-        for (Row row : cinema) {
-            for (Seat seat : row) {
-                if (seat.equals(userSeat)) {
-                    seat.setValue("B");
-                }
-            }
-        }
-    }
 }
