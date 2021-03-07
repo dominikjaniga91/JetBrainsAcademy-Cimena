@@ -22,7 +22,7 @@ public class Cinema implements Iterable<Row> {
         System.out.println();
         System.out.println("Cinema:");
         System.out.print("  ");
-        IntStream.rangeClosed(1, rows.size())
+        IntStream.rangeClosed(1, rows.get(0).getSeats().size())
                 .forEach(i -> System.out.print(i + " "));
         System.out.println();
     }

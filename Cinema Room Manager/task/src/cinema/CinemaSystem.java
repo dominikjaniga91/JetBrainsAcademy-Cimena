@@ -13,9 +13,19 @@ class CinemaSystem {
         int seatsInRow = getNumberOfSeats(scanner);
         cinema = cinemaManager.createCinema(rows, seatsInRow);
 
-        printMenu();
-        int numberOfOperation = scanner.nextInt();
-        runOperation(numberOfOperation);
+        while (true) {
+            printMenu();
+            switch (scanner.nextInt()) {
+                case 1:
+                    cinema.print();
+                    break;
+                case 2:
+                    buyTicket();
+                    break;
+                case 0:
+                    return;
+            }
+        }
     }
 
     private static Seat readUserPlace(Scanner scanner) {
@@ -36,18 +46,6 @@ class CinemaSystem {
         return scanner.nextInt();
     }
 
-    private void runOperation(int index) {
-        switch (index) {
-            case 1: cinema.print();
-            case 2: buyTicket();
-            case 3: exit();
-        }
-    }
-
-    private void exit() {
-        System.exit(0);
-    }
-
     private void buyTicket() {
         Seat userSeat = readUserPlace(scanner);
         int price = cinema.calculatePrize(userSeat);
@@ -57,8 +55,8 @@ class CinemaSystem {
 
     private void printMenu() {
         System.out.println("1. Show the seats\n" +
-                            "2. Buy a ticket\n" +
-                            "0. Exit");
+                "2. Buy a ticket\n" +
+                "0. Exit");
     }
 
 }
