@@ -6,8 +6,6 @@ class Seat {
 
     private final int column;
     private final int row;
-    private int frontSeatPrice = 10;
-    private int backSeatPrice = 8;
     private String value = "S";
 
     public Seat(int row, int column) {
