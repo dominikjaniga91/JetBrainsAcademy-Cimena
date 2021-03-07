@@ -15,6 +15,10 @@ class Row implements Iterable<Seat> {
         return seatsInRow;
     }
 
+    long getNumberOfTickets() {
+        return seatsInRow.stream().filter(Seat::isTaken).count();
+    }
+
     @Override
     public Iterator<Seat> iterator() {
         return seatsInRow.iterator();
