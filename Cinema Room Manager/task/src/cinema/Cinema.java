@@ -25,9 +25,10 @@ public class Cinema {
         Cinema cinema = CinemaManager.createCinema(rows, seatsInRow);
         printCinemaSchema(cinema, seatsInRow);
 
+
         Seat userSeat = readUserPlace(scanner);
         int price = userSeat.calculatePrice();
-        System.out.printf("Ticket price: $%d%n%n", price);
+        System.out.printf("%nTicket price: $%d%n", price);
         CinemaManager.bookSeat(cinema, userSeat);
         printCinemaSchema(cinema, seatsInRow);
 
@@ -57,6 +58,8 @@ public class Cinema {
     }
 
     private static void printColumnsNumbers(int seats) {
+        System.out.println();
+        System.out.println("Cinema:");
         System.out.print("  ");
         IntStream.rangeClosed(1, seats)
                 .forEach(i -> System.out.print(i + " "));
@@ -74,5 +77,6 @@ public class Cinema {
             }
             System.out.println();
         }
+        System.out.println();
     }
 }
