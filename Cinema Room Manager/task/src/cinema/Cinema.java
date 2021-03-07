@@ -27,7 +27,7 @@ public class Cinema {
 
 
         Seat userSeat = readUserPlace(scanner);
-        int price = userSeat.calculatePrice();
+        int price = cinema.calculatePrize(userSeat);
         System.out.printf("%nTicket price: $%d%n", price);
         CinemaManager.bookSeat(cinema, userSeat);
         printCinemaSchema(cinema, seatsInRow);
@@ -78,5 +78,12 @@ public class Cinema {
             System.out.println();
         }
         System.out.println();
+    }
+
+    private int calculatePrize(Seat seat) {
+        if (rows.size() * rows.get(0).getSeats().size() <= 60) {
+            return 10;
+        }
+        return seat.getRow() <= rows.size() / 2 ? 10 : 8;
     }
 }

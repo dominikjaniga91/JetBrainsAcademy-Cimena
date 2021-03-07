@@ -10,14 +10,9 @@ class Seat {
     private int backSeatPrice = 8;
     private String value = "S";
 
-    public Seat(int column, int row) {
-        this.column = column;
+    public Seat(int row, int column) {
         this.row = row;
-    }
-
-    public int calculatePrice() {
-        return row <= row / 2 ? frontSeatPrice
-                : backSeatPrice;
+        this.column = column;
     }
 
     public void setValue(String value) {
@@ -41,5 +36,9 @@ class Seat {
     @Override
     public String toString() {
         return value;
+    }
+
+    public int getRow() {
+        return row;
     }
 }
