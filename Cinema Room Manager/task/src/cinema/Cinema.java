@@ -57,13 +57,6 @@ public class Cinema implements Iterable<Row> {
         }
     }
 
-    void printMenu() {
-        System.out.println("1. Show the seats\n" +
-                "2. Buy a ticket\n" +
-                "0. Exit");
-    }
-
-
     @Override
     public Iterator<Row> iterator() {
         return rows.iterator();
