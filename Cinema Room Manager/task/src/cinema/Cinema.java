@@ -1,10 +1,11 @@
 package cinema;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.IntStream;
 
-public class Cinema {
+public class Cinema implements Iterable<Row> {
 
     private List<Row> rows;
 
@@ -85,5 +86,10 @@ public class Cinema {
             return 10;
         }
         return seat.getRow() <= rows.size() / 2 ? 10 : 8;
+    }
+
+    @Override
+    public Iterator<Row> iterator() {
+        return rows.iterator();
     }
 }

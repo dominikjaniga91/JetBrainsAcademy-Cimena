@@ -1,8 +1,9 @@
 package cinema;
 
+import java.util.Iterator;
 import java.util.List;
 
-class Row {
+class Row implements Iterable<Seat> {
 
     private List<Seat> seatsInRow;
 
@@ -14,4 +15,8 @@ class Row {
         return seatsInRow;
     }
 
+    @Override
+    public Iterator<Seat> iterator() {
+        return seatsInRow.iterator();
+    }
 }

@@ -21,9 +21,8 @@ public class CinemaManager {
     }
 
     static void bookSeat(Cinema cinema, Seat userSeat) {
-        var rows = cinema.getRows();
-        for (Row row : rows) {
-            for (Seat seat : row.getSeats()) {
+        for (Row row : cinema) {
+            for (Seat seat : row) {
                 if (seat.equals(userSeat)) {
                     seat.setValue("B");
                 }
