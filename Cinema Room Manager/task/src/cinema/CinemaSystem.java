@@ -37,6 +37,14 @@ class CinemaSystem {
         return scanner.nextInt();
     }
 
+    private void runOperation(int index) {
+        switch (index) {
+            case 1: cinema.print();
+            case 2: buyTicket();
+            case 3: exit();
+        }
+    }
+
     private void exit() {
         System.exit(0);
     }
