@@ -13,8 +13,8 @@ class Seat {
         this.column = column;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void book() {
+        this.value = "B";
     }
 
     @Override
