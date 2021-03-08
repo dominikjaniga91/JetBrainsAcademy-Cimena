@@ -15,6 +15,10 @@ class Seat {
         this.prize = prize;
     }
 
+    public static Seat of(int row, int column) {
+        return new Seat(row, column, 0);
+    }
+
     public void book() {
         this.value = "B";
     }
