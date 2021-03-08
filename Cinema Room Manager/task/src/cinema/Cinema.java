@@ -87,9 +87,9 @@ public class Cinema implements Iterable<Row> {
 
     void printStatistics() {
         System.out.printf("Number of purchased tickets: %d\n" +
-                "Percentage: %f.2\n" +
+                "Percentage: %.2f%%\n" +
                 "Current income: $%d\n" +
-                "Total income: $%d\n", getNumberOfTickets(), getPercentageOfFill(), getValueOfTickets(), getTotalIncome());
+                "Total income: $%d\n\n", getNumberOfTickets(), getPercentageOfFill(), getValueOfTickets(), getTotalIncome());
     }
 
     long getNumberOfTickets() {
@@ -105,7 +105,7 @@ public class Cinema implements Iterable<Row> {
     }
 
     double getPercentageOfFill() {
-        return (double) getNumberOfTickets() / (numberOfRows * numberOfSeats);
+        return (double) getNumberOfTickets() / (numberOfRows * numberOfSeats) * 100;
     }
 
     @Override
