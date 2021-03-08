@@ -33,7 +33,7 @@ class CinemaSystem {
         int row = scanner.nextInt();
         System.out.println("Enter a seat number in that row:");
         int column = scanner.nextInt();
-        return new Seat(row, column);
+        return new Seat(row, column, 0);
     }
 
     private static int getNumberOfRows(Scanner scanner) {

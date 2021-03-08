@@ -6,11 +6,13 @@ class Seat {
 
     private final int column;
     private final int row;
+    private final int prize;
     private String value = "S";
 
-    public Seat(int row, int column) {
+    public Seat(int row, int column, int prize) {
         this.row = row;
         this.column = column;
+        this.prize = prize;
     }
 
     public void book() {

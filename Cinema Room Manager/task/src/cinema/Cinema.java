@@ -62,7 +62,7 @@ public class Cinema implements Iterable<Row> {
             List<Seat> seats = new ArrayList<>();
             for (int seatNumber = 0; seatNumber < numberOfSeats; seatNumber++) {
                 int prize = calculatePrize(rowNumber);
-                Seat seat = new Seat(rowNumber + 1, seatNumber + 1);
+                Seat seat = new Seat(rowNumber + 1, seatNumber + 1, prize);
                 seats.add(seat);
             }
             Row row = new Row(seats);
