@@ -52,8 +52,7 @@ class CinemaSystem {
     private void buyTicket() {
         Seat userSeat = readUserPlace(scanner);
         Seat chosenSeat = cinema.bookSeat(userSeat);
-        int price = cinema.calculatePrize(userSeat);
-        System.out.printf("%nTicket price: $%d%n", price);
+        System.out.printf("%nTicket price: $%d%n", chosenSeat.getPrice());
     }
 
     private void printMenu() {
