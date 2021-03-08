@@ -53,4 +53,8 @@ class Seat {
     public int getRow() {
         return row;
     }
+
+    public boolean isFree() {
+        return "S".equals(value);
+    }
 }
