@@ -1,5 +1,6 @@
 package cinema;
 
+import java.util.Optional;
 import java.util.Scanner;
 
 class CinemaSystem {
@@ -51,8 +52,12 @@ class CinemaSystem {
 
     private void buyTicket() {
         Seat userSeat = readUserPlace(scanner);
-        Seat chosenSeat = cinema.bookSeat(userSeat);
-        System.out.printf("%nTicket price: $%d%n", chosenSeat.getPrice());
+        Optional<Seat> chosenSeat = cinema.bookSeat(userSeat);
+        if (chosenSeat.isPresent()) {
+            System.out.printf("%nTicket price: $%d%n", chosenSeat.get().getPrice());
+        } else {
+            System.out.println("That ticket has already been purchased!");
+        }
     }
 
     private void printMenu() {

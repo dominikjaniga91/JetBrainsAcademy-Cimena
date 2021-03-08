@@ -3,6 +3,7 @@ package cinema;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.IntStream;
 
 public class Cinema implements Iterable<Row> {
@@ -43,16 +44,16 @@ public class Cinema implements Iterable<Row> {
         System.out.println();
     }
 
-    Seat bookSeat(Seat userSeat) {
+    Optional<Seat> bookSeat(Seat userSeat) {
         for (Row row : rows) {
             for (Seat seat : row) {
-                if (seat.equals(userSeat)) {
+                if (seat.equals(userSeat) && seat.isFree()) {
                     seat.book();
-                    return seat;
+                    return Optional.of(seat);
                 }
             }
         }
-        return null;
+        return Optional.empty();
     }
 
     void create() {
