@@ -88,6 +88,10 @@ public class Cinema implements Iterable<Row> {
         return rows.stream().map(Row::getNumberOfTickets).reduce(0L, Long::sum);
     }
 
+    int getValueOfTickets() {
+        return rows.stream().map(Row::getValueOfTickets).reduce(0, Integer::sum);
+    }
+
     @Override
     public Iterator<Row> iterator() {
         return rows.iterator();
