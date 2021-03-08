@@ -84,6 +84,14 @@ public class Cinema implements Iterable<Row> {
         return rowNumber <= numberOfRows / 2 ? 10 : 8;
     }
 
+
+    void printStatistics() {
+        System.out.printf("Number of purchased tickets: %d\n" +
+                "Percentage: %f.2\n" +
+                "Current income: $%d\n" +
+                "Total income: $%d\n", getNumberOfTickets(), getPercentageOfFill(), getValueOfTickets(), getTotalIncome());
+    }
+
     long getNumberOfTickets() {
         return rows.stream().map(Row::getNumberOfTickets).reduce(0L, Long::sum);
     }
@@ -94,6 +102,10 @@ public class Cinema implements Iterable<Row> {
 
     int getTotalIncome() {
         return rows.stream().map(Row::getTotalIncome).reduce(0, Integer::sum);
+    }
+
+    double getPercentageOfFill() {
+        return (double) getNumberOfTickets() / (numberOfRows * numberOfSeats);
     }
 
     @Override
