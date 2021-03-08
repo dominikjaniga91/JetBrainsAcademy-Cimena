@@ -19,6 +19,10 @@ class Seat {
         return new Seat(row, column, 0);
     }
 
+    public int getPrice() {
+        return prize;
+    }
+
     public void book() {
         this.value = "B";
     }
