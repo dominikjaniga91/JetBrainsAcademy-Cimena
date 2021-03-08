@@ -70,13 +70,6 @@ public class Cinema implements Iterable<Row> {
         }
     }
 
-    int calculatePrize(Seat seat) {
-        if (rows.size() * rows.get(0).getSeats().size() <= 60) {
-            return 10;
-        }
-        return seat.getRow() <= rows.size() / 2 ? 10 : 8;
-    }
-
     int calculatePrize(int rowNumber) {
         if (numberOfSeats * numberOfRows <= 60) {
             return 10;
