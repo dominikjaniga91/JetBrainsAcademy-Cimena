@@ -84,6 +84,10 @@ public class Cinema implements Iterable<Row> {
         return rowNumber <= numberOfRows / 2 ? 10 : 8;
     }
 
+    long getNumberOfTickets() {
+        return rows.stream().map(Row::getNumberOfTickets).reduce(0L, Long::sum);
+    }
+
     @Override
     public Iterator<Row> iterator() {
         return rows.iterator();

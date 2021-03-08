@@ -19,7 +19,7 @@ class Row implements Iterable<Seat> {
         return seatsInRow.stream().filter(Seat::isTaken).count();
     }
 
-    long getValueOfTickets() {
+    int getValueOfTickets() {
         return seatsInRow.stream().map(Seat::getPrice).reduce(0, Integer::sum);
     }
 
