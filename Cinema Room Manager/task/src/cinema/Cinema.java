@@ -92,6 +92,10 @@ public class Cinema implements Iterable<Row> {
         return rows.stream().map(Row::getValueOfTickets).reduce(0, Integer::sum);
     }
 
+    int getTotalIncome() {
+        return rows.stream().map(Row::getTotalIncome).reduce(0, Integer::sum);
+    }
+
     @Override
     public Iterator<Row> iterator() {
         return rows.iterator();
