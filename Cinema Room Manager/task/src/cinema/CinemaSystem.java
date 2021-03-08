@@ -22,6 +22,9 @@ class CinemaSystem {
                 case 2:
                     buyTicket();
                     break;
+                case 3:
+                    cinema.printStatistics();
+                    break;
                 case 0:
                     return;
             }
@@ -56,6 +59,7 @@ class CinemaSystem {
     private void printMenu() {
         System.out.println("1. Show the seats\n" +
                 "2. Buy a ticket\n" +
+                "3. Statistics\n" +
                 "0. Exit");
     }
 
