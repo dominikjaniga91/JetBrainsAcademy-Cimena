@@ -43,13 +43,6 @@ public class Cinema implements Iterable<Row> {
         System.out.println();
     }
 
-    int calculatePrize(Seat seat) {
-        if (rows.size() * rows.get(0).getSeats().size() <= 60) {
-            return 10;
-        }
-        return seat.getRow() <= rows.size() / 2 ? 10 : 8;
-    }
-
     Seat bookSeat(Seat userSeat) {
         for (Row row : rows) {
             for (Seat seat : row) {
@@ -68,12 +61,27 @@ public class Cinema implements Iterable<Row> {
         for (int rowNumber = 0; rowNumber < numberOfRows; rowNumber++) {
             List<Seat> seats = new ArrayList<>();
             for (int seatNumber = 0; seatNumber < numberOfSeats; seatNumber++) {
+                int prize = calculatePrize(rowNumber);
                 Seat seat = new Seat(rowNumber + 1, seatNumber + 1);
                 seats.add(seat);
             }
             Row row = new Row(seats);
             rows.add(row);
         }
+    }
+
+    int calculatePrize(Seat seat) {
+        if (rows.size() * rows.get(0).getSeats().size() <= 60) {
+            return 10;
+        }
+        return seat.getRow() <= rows.size() / 2 ? 10 : 8;
+    }
+
+    int calculatePrize(int rowNumber) {
+        if (numberOfSeats * numberOfRows <= 60) {
+            return 10;
+        }
+        return rowNumber <= numberOfRows / 2 ? 10 : 8;
     }
 
     @Override
