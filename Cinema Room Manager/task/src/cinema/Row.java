@@ -20,7 +20,16 @@ class Row implements Iterable<Seat> {
     }
 
     int getValueOfTickets() {
-        return seatsInRow.stream().map(Seat::getPrice).reduce(0, Integer::sum);
+        return seatsInRow.stream()
+                .filter(Seat::isTaken)
+                .map(Seat::getPrice)
+                .reduce(0, Integer::sum);
+    }
+
+    int getTotalIncome() {
+        return seatsInRow.stream()
+                .map(Seat::getPrice)
+                .reduce(0, Integer::sum);
     }
 
     @Override
