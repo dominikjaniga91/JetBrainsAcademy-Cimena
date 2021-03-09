@@ -7,11 +7,11 @@ class Row implements Iterable<Seat> {
 
     private List<Seat> seatsInRow;
 
-    public Row(List<Seat> seatsInRow) {
+    Row(List<Seat> seatsInRow) {
         this.seatsInRow = seatsInRow;
     }
 
-    public List<Seat> getSeats() {
+    List<Seat> getSeats() {
         return seatsInRow;
     }
 

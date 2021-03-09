@@ -12,7 +12,7 @@ public class Cinema {
     private final int numberOfRows;
     private final int numberOfSeats;
 
-    public Cinema(int numberOfRows, int numberOfSeats) {
+    Cinema(int numberOfRows, int numberOfSeats) {
         this.numberOfRows = numberOfRows;
         this.numberOfSeats = numberOfSeats;
     }

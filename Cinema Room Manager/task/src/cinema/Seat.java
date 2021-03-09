@@ -9,17 +9,17 @@ class Seat {
     private final int prize;
     private String value = "S";
 
-    public Seat(int row, int column, int prize) {
+    Seat(int row, int column, int prize) {
         this.row = row;
         this.column = column;
         this.prize = prize;
     }
 
-    public static Seat of(int row, int column) {
+    static Seat of(int row, int column) {
         return new Seat(row, column, 0);
     }
 
-    public int getPrice() {
+    int getPrice() {
         return prize;
     }
 
@@ -28,7 +28,7 @@ class Seat {
                 1 <= row && row <= numberOfRows;
     }
 
-    public void book() {
+    void book() {
         this.value = "B";
     }
 
@@ -55,7 +55,7 @@ class Seat {
         return value;
     }
 
-    public boolean isFree() {
+    boolean isFree() {
         return "S".equals(value);
     }
 }
