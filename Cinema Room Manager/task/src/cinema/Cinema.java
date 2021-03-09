@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
-public class Cinema implements Iterable<Row> {
+public class Cinema {
 
     private List<Row> rows;
     public final int numberOfRows;
@@ -109,8 +109,4 @@ public class Cinema implements Iterable<Row> {
                 seat.getRow() <= numberOfRows;
     }
 
-    @Override
-    public Iterator<Row> iterator() {
-        return rows.iterator();
-    }
 }
