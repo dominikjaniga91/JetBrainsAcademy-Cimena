@@ -1,9 +1,9 @@
 package cinema;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.stream.IntStream;
 
 public class Cinema {
@@ -87,15 +87,19 @@ public class Cinema {
     }
 
     int getNumberOfTickets() {
-        return rows.stream().map(Row::getNumberOfTickets).reduce(0, Integer::sum);
+        return aggregateData(Row::getNumberOfTickets);
     }
 
     int getValueOfTickets() {
-        return rows.stream().map(Row::getValueOfTickets).reduce(0, Integer::sum);
+        return aggregateData(Row::getValueOfTickets);
     }
 
     int getTotalIncome() {
-        return rows.stream().map(Row::getTotalIncome).reduce(0, Integer::sum);
+        return aggregateData(Row::getTotalIncome);
+    }
+
+    private int aggregateData(Function<Row, Integer> function) {
+        return rows.stream().map(function).reduce(0, Integer::sum);
     }
 
     double getPercentageOfFill() {
