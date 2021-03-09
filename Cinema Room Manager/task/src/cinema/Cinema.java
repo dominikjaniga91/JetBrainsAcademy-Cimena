@@ -9,8 +9,8 @@ import java.util.stream.IntStream;
 public class Cinema {
 
     private List<Row> rows;
-    public final int numberOfRows;
-    public final int numberOfSeats;
+    private final int numberOfRows;
+    private final int numberOfSeats;
 
     public Cinema(int numberOfRows, int numberOfSeats) {
         this.numberOfRows = numberOfRows;
@@ -105,5 +105,4 @@ public class Cinema {
     boolean isValidSeat(Seat seat) {
         return seat.isValid(numberOfSeats, numberOfRows);
     }
-
 }
