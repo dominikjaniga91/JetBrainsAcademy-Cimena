@@ -23,8 +23,20 @@ class Seat {
         return prize;
     }
 
+    public int getColumn() {
+        return column;
+    }
+
+    public int getRow() {
+        return row;
+    }
+
     public void book() {
         this.value = "B";
+    }
+
+    boolean isTaken() {
+        return "B".equals(value);
     }
 
     @Override
@@ -36,10 +48,6 @@ class Seat {
                 row == seat.row;
     }
 
-    boolean isTaken() {
-        return "B".equals(value);
-    }
-
     @Override
     public int hashCode() {
         return Objects.hash(column, row);
@@ -48,10 +56,6 @@ class Seat {
     @Override
     public String toString() {
         return value;
-    }
-
-    public int getRow() {
-        return row;
     }
 
     public boolean isFree() {
