@@ -103,10 +103,7 @@ public class Cinema {
     }
 
     boolean isValidSeat(Seat seat) {
-        return 1 <= seat.getColumn() &&
-                seat.getColumn() <= numberOfSeats &&
-                1 <= seat.getRow() &&
-                seat.getRow() <= numberOfRows;
+        return seat.isValid(numberOfSeats, numberOfRows);
     }
 
 }

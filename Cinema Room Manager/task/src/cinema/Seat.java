@@ -23,12 +23,9 @@ class Seat {
         return prize;
     }
 
-    public int getColumn() {
-        return column;
-    }
-
-    public int getRow() {
-        return row;
+    boolean isValid(int numberOfColumns, int numberOfRows) {
+        return 1 <= column && column <= numberOfColumns &&
+                1 <= row && row <= numberOfRows;
     }
 
     public void book() {
