@@ -62,7 +62,7 @@ public class Cinema implements Iterable<Row> {
         for (int rowNumber = 0; rowNumber < numberOfRows; rowNumber++) {
             List<Seat> seats = new ArrayList<>();
             for (int seatNumber = 0; seatNumber < numberOfSeats; seatNumber++) {
-                int prize = calculatePrize(rowNumber);
+                int prize = calculatePrize(rowNumber + 1);
                 Seat seat = new Seat(rowNumber + 1, seatNumber + 1, prize);
                 seats.add(seat);
             }
@@ -100,6 +100,13 @@ public class Cinema implements Iterable<Row> {
 
     double getPercentageOfFill() {
         return (double) getNumberOfTickets() / (numberOfRows * numberOfSeats) * 100;
+    }
+
+    boolean isValidSeat(Seat seat) {
+        return 1 <= seat.getColumn() &&
+                seat.getColumn() <= numberOfSeats &&
+                1 <= seat.getRow() &&
+                seat.getRow() <= numberOfRows;
     }
 
     @Override
