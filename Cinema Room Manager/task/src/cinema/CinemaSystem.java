@@ -41,27 +41,34 @@ class CinemaSystem {
     }
 
     private static int getNumberOfRows(Scanner scanner) {
-        System.out.println("Enter the number of rows:");
+        System.out.println("\nEnter the number of rows:");
         return scanner.nextInt();
     }
 
     private static int getNumberOfSeats(Scanner scanner) {
-        System.out.println("Enter the number of seats in each row:");
+        System.out.println("\nEnter the number of seats in each row:");
         return scanner.nextInt();
     }
 
     private void buyTicket() {
-        Seat userSeat = readUserPlace(scanner);
-        Optional<Seat> chosenSeat = cinema.bookSeat(userSeat);
-        if (chosenSeat.isPresent()) {
-            System.out.printf("%nTicket price: $%d%n", chosenSeat.get().getPrice());
-        } else {
-            System.out.println("That ticket has already been purchased!");
-        }
+        Optional<Seat> chosenSeat = Optional.empty();
+        do {
+            Seat userSeat = readUserPlace(scanner);
+            if (cinema.isValidSeat(userSeat)) {
+                chosenSeat = cinema.bookSeat(userSeat);
+                if (chosenSeat.isPresent()) {
+                    System.out.printf("%nTicket price: $%d%n", chosenSeat.get().getPrice());
+                } else {
+                    System.out.println("\nThat ticket has already been purchased!");
+                }
+            } else {
+                System.out.println("Wrong input!");
+            }
+        } while (chosenSeat.isEmpty());
     }
 
     private void printMenu() {
-        System.out.println("1. Show the seats\n" +
+        System.out.println("\n1. Show the seats\n" +
                 "2. Buy a ticket\n" +
                 "3. Statistics\n" +
                 "0. Exit");
