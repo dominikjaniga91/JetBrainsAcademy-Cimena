@@ -15,8 +15,8 @@ class Row implements Iterable<Seat> {
         return seatsInRow;
     }
 
-    long getNumberOfTickets() {
-        return seatsInRow.stream().filter(Seat::isTaken).count();
+    int getNumberOfTickets() {
+        return (int) seatsInRow.stream().filter(Seat::isTaken).count();
     }
 
     int getValueOfTickets() {

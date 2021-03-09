@@ -86,8 +86,8 @@ public class Cinema {
                 "Total income: $%d\n\n", getNumberOfTickets(), getPercentageOfFill(), getValueOfTickets(), getTotalIncome());
     }
 
-    long getNumberOfTickets() {
-        return rows.stream().map(Row::getNumberOfTickets).reduce(0L, Long::sum);
+    int getNumberOfTickets() {
+        return rows.stream().map(Row::getNumberOfTickets).reduce(0, Integer::sum);
     }
 
     int getValueOfTickets() {
